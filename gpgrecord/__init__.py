@@ -8,7 +8,7 @@ import hashlib
 
 gpg = gnupg.GPG()
 
-def gpg_list_recipients():
+def list_recipients():
     return [{"uids": item.get('uids'),
       "fingerprint": item.get('fingerprint')}
      for item in gpg.list_keys()]
