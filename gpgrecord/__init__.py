@@ -7,6 +7,7 @@ import hashlib
 
 
 gpg = gnupg.GPG()
+gpg.encoding = 'utf-8'
 
 def list_recipients():
     return [{"uids": item.get('uids'),
@@ -57,7 +58,8 @@ def decrypt_data(encrypted_ooio_data):
         except:
             raise Exception("Something wrong with payload={}".format(payload))
     else:
-        raise Exception("Key not found: '_:b64payload'")
+        raise Exception("Key not found: '_:b64payload'. Check if GPG key {} is available, and make sure to export GPG_TTY=`tty` or alternative.".format(
+            encrypted_ooio_data.get('_:identities')))
 
 
 def encrypt_data(data, fingerprints):
