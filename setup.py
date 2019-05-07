@@ -8,7 +8,7 @@ with open('README.md', 'r') as f:
 
 setup(
     name='gpgrecord',
-    version='0.0.2',
+    version='0.0.3',
     description='Encrypt/Decrypt interface for GPG record compatiable with JSON via base64.',
     long_description=long_description,
     long_description_content_type='text/markdown',
@@ -18,7 +18,7 @@ setup(
     license='MIT',
     packages = find_packages(exclude=['docs', 'tests*']),
     install_requires=[
-        'python-gnupg'
+        'python-gnupg>=0.4.4',
     ],
     extras_require = {
         'test': ['coverage', 'pytest', 'pytest-cov'],
